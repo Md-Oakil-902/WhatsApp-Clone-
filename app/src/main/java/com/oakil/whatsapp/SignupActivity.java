@@ -1,24 +1,81 @@
 package com.oakil.whatsapp;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+import com.oakil.whatsapp.databinding.ActivitySignupBinding;
+
 public class SignupActivity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
+    ActivitySignupBinding binding;
+    FirebaseDatabase database;
+    ProgressDialog progressDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_signup);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        binding = ActivitySignupBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        getSupportActionBar().hide();
+
+        mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+
+        progressDialog = new ProgressDialog(SignupActivity.this);
+        progressDialog.setTitle("Creating Account..");
+        progressDialog.setMessage("Account creating in processing");
+
+        binding.signUp.setOnClickListener(v -> {
+            if (!binding.textPersonName.getText().toString().isEmpty() &&
+                    !binding.textEmail.getText().toString().isEmpty() &&
+                    !binding.editTextNumberPassword.getText().toString().isEmpty()) {
+                progressDialog.show();
+
+
+                mAuth.createUserWithEmailAndPassword(binding.textEmail.getText().toString(), binding.editTextNumberPassword.getText().toString())
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(SignupActivity.this, "Sign up Successfull", Toast.LENGTH_SHORT).show();
+                                    progressDialog.dismiss();
+
+                                } else {
+                                    Toast.makeText(SignupActivity.this, "Sign up Failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+
+
+            } else {
+                Toast.makeText(SignupActivity.this, "Enter credential ", Toast.LENGTH_SHORT).show();
+            }
+
         });
+
+
     }
 }
+
+
+
+

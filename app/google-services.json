@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "256414479350",
+    "project_id": "whatapp-c1ddb",
+    "storage_bucket": "whatapp-c1ddb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256414479350:android:47ab774542b2e58c070dd7",
+        "android_client_info": {
+          "package_name": "com.oakil.whatsapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWQqxeRmZvq-nAzeid_yirprq5PzfBbmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
