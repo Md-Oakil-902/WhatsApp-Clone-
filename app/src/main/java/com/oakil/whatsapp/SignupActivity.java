@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.oakil.whatsapp.Models.Users;
 import com.oakil.whatsapp.databinding.ActivitySignupBinding;
 
 public class SignupActivity extends AppCompatActivity {
@@ -55,6 +56,12 @@ public class SignupActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
+
+                                    Users users = new Users(binding.textPersonName.getText().toString(), binding.textEmail.getText().toString(), binding.editTextNumberPassword.getText().toString());
+                                    String id = task.getResult().getUser().getUid();
+                                    database.getReference().child("Users").child(id).setValue(users);
+
+
                                     Toast.makeText(SignupActivity.this, "Sign up Successfull", Toast.LENGTH_SHORT).show();
                                     progressDialog.dismiss();
 
