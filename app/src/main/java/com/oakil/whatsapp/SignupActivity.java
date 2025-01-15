@@ -58,6 +58,7 @@ public class SignupActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
 
                                     Users users = new Users(binding.textPersonName.getText().toString(), binding.textEmail.getText().toString(), binding.editTextNumberPassword.getText().toString());
+
                                     String id = task.getResult().getUser().getUid();
                                     database.getReference().child("Users").child(id).setValue(users);
 
@@ -71,7 +72,6 @@ public class SignupActivity extends AppCompatActivity {
 
                             }
                         });
-
 
             } else {
                 Toast.makeText(SignupActivity.this, "Enter credential ", Toast.LENGTH_SHORT).show();
