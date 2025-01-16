@@ -1,6 +1,7 @@
 package com.oakil.whatsapp;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -65,6 +66,7 @@ public class SignupActivity extends AppCompatActivity {
 
                                     Toast.makeText(SignupActivity.this, "Sign up Successfull", Toast.LENGTH_SHORT).show();
                                     progressDialog.dismiss();
+                                    startActivity(new Intent(SignupActivity.this, MainActivity.class));
 
                                 } else {
                                     Toast.makeText(SignupActivity.this, "Sign up Failed", Toast.LENGTH_SHORT).show();
@@ -77,6 +79,10 @@ public class SignupActivity extends AppCompatActivity {
                 Toast.makeText(SignupActivity.this, "Enter credential ", Toast.LENGTH_SHORT).show();
             }
 
+        });
+
+        binding.goToSignIN.setOnClickListener(v->{
+            startActivity(new Intent(SignupActivity.this, SigninActivity.class));
         });
 
 

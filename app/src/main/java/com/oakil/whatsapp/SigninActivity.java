@@ -36,7 +36,6 @@ public class SigninActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
 
-
         progressDialog = new ProgressDialog(SigninActivity.this);
         progressDialog.setTitle("Login..");
         progressDialog.setMessage("Sign in is processing..");
@@ -45,7 +44,7 @@ public class SigninActivity extends AppCompatActivity {
             if( !binding.signInEmail.getText().toString().isEmpty() &&  !binding.signInPassword.getText().toString().isEmpty()){
                 progressDialog.show();
 
-                mAuth.createUserWithEmailAndPassword(binding.signInEmail.getText().toString(), binding.signInPassword.getText().toString())
+                mAuth.signInWithEmailAndPassword(binding.signInEmail.getText().toString(), binding.signInPassword.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -56,16 +55,21 @@ public class SigninActivity extends AppCompatActivity {
                                 }else{
                                     Toast.makeText(SigninActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
-
                             }
                         });
-
             }else{
+
                 Toast.makeText(this, "Enter credential", Toast.LENGTH_SHORT).show();
             }
         });
 
+        binding.goToSignUp.setOnClickListener(v -> {
+            startActivity(new Intent(SigninActivity.this, SignupActivity.class));
+        });
 
+        if(mAuth.getCurrentUser() != null ){
+            startActivity(new Intent(SigninActivity.this, MainActivity.class));
+        }
 
     }
 }
