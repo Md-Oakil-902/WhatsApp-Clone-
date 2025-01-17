@@ -12,6 +12,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.gms.auth.api.identity.BeginSignInRequest;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -39,6 +41,13 @@ public class SigninActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(SigninActivity.this);
         progressDialog.setTitle("Login..");
         progressDialog.setMessage("Sign in is processing..");
+
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
 
         binding.signinButton.setOnClickListener(v->{
             if( !binding.signInEmail.getText().toString().isEmpty() &&  !binding.signInPassword.getText().toString().isEmpty()){

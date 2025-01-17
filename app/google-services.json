@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "256414479350",
+    "firebase_url": "https://whatapp-c1ddb-default-rtdb.firebaseio.com",
     "project_id": "whatapp-c1ddb",
     "storage_bucket": "whatapp-c1ddb.firebasestorage.app"
   },
@@ -12,7 +13,12 @@
           "package_name": "com.oakil.whatsapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "256414479350-g0nasugugdmk5866340ti57ospj09nvh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDWQqxeRmZvq-nAzeid_yirprq5PzfBbmY"
@@ -20,7 +26,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "256414479350-g0nasugugdmk5866340ti57ospj09nvh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
