@@ -13,6 +13,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.gms.auth.api.identity.BeginSignInRequest;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,6 +28,7 @@ public class SigninActivity extends AppCompatActivity {
     FirebaseDatabase database;
     FirebaseAuth mAuth;
     ProgressDialog progressDialog;
+    GoogleSignInClient mGoogleSignInClient;
 
 
 
@@ -47,6 +50,10 @@ public class SigninActivity extends AppCompatActivity {
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
+
+
 
 
         binding.signinButton.setOnClickListener(v->{
@@ -79,6 +86,7 @@ public class SigninActivity extends AppCompatActivity {
         if(mAuth.getCurrentUser() != null ){
             startActivity(new Intent(SigninActivity.this, MainActivity.class));
         }
+
 
     }
 }
