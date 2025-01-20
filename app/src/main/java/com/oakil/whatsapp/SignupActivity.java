@@ -77,6 +77,7 @@ public class SignupActivity extends AppCompatActivity {
 
             } else {
                 Toast.makeText(SignupActivity.this, "Enter credential ", Toast.LENGTH_SHORT).show();
+
             }
 
         });

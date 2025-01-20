@@ -94,9 +94,9 @@ public class SigninActivity extends AppCompatActivity {
         binding.goToSignUp.setOnClickListener(v -> {
             startActivity(new Intent(SigninActivity.this, SignupActivity.class));
         });
+
         binding.googleButton.setOnClickListener(v->{
             signIn();
-            //startActivity(new Intent(SigninActivity.this, MainActivity.class));
         });
 
 
@@ -147,7 +147,6 @@ public class SigninActivity extends AppCompatActivity {
                             users.setUserName(user.getDisplayName());
                             users.setProfilePic(user.getPhotoUrl().toString());
                             firebaseDatabase.getReference().child("Users").child(user.getUid()).setValue(users);
-
 
                             startActivity(new Intent(SigninActivity.this, MainActivity.class));
                             Toast.makeText(SigninActivity.this, "Sign up is successful", Toast.LENGTH_SHORT).show();
