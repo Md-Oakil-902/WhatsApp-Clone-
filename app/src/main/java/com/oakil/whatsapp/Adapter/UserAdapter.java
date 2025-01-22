@@ -23,7 +23,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
     ArrayList<Users> list;
     Context context;
 
-    public UserAdapter(Context context, ArrayList<Users> list) {
+    public UserAdapter(ArrayList<Users> list , Context context) {
         this.context = context;
         this.list = list;
     }
@@ -50,13 +50,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
         return list == null ? 0: list.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
         TextView userName, lastMessage;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            image = itemView.findViewById(R.id.);
+            image = itemView.findViewById(R.id.profile_image);
             userName = itemView.findViewById(R.id.userNameList);
             lastMessage = itemView.findViewById(R.id.lastMessage);
         }
