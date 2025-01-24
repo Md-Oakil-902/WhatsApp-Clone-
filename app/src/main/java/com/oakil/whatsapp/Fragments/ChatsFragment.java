@@ -49,6 +49,9 @@ public class ChatsFragment extends Fragment {
         UserAdapter adapter = new UserAdapter(list, getContext());
         binding.chatRecyclerView.setAdapter(adapter);
 
+
+
+
         LinearLayoutManager  layoutManager = new LinearLayoutManager(getContext());
         binding.chatRecyclerView.setLayoutManager(layoutManager);
 
@@ -69,7 +72,6 @@ public class ChatsFragment extends Fragment {
                 }
                 adapter.notifyDataSetChanged();
 
-
             }
 
             @Override
@@ -77,8 +79,6 @@ public class ChatsFragment extends Fragment {
 
             }
         });
-
-
 
         return binding.getRoot();
     }

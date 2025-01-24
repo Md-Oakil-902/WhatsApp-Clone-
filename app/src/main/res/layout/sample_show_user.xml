@@ -11,8 +11,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginTop="4dp"
         android:padding="5dp"
         android:src="@drawable/avatar3"
@@ -34,13 +34,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Md Oakil Sarker"
+            android:textColor="@color/black"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/lastMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Last message" />
+            android:text="Last message"
+            android:textColor="@color/black" />
     </LinearLayout>
 
 

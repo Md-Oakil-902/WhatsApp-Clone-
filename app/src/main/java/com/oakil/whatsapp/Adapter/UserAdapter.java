@@ -3,6 +3,7 @@ package com.oakil.whatsapp.Adapter;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.oakil.whatsapp.ChatDetailActivity;
 import com.oakil.whatsapp.Models.Users;
 import com.oakil.whatsapp.R;
 
@@ -39,9 +41,21 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         Users users = list.get(position);
+
         Glide.with(context).load(users.getProfilePic()).placeholder(R.drawable.avatar).into(holder.image);
         holder.userName.setText(users.getUserName());
+
+        holder.itemView.setOnClickListener(v -> {
+
+            Intent intent = new Intent(context, ChatDetailActivity.class);
+            intent.putExtra("userId", users.getUserId());
+            intent.putExtra("profilePic", users.getProfilePic());
+            intent.putExtra("userName", users.getUserName());
+            context.startActivity(intent);
+
+        });
 
     }
 
