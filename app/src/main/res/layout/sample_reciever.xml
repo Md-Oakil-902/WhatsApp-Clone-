@@ -4,26 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_gravity="left"
     android:layout_marginStart="5dp"
     android:layout_marginLeft="55dp"
     android:layout_marginTop="5dp"
+    android:layout_marginEnd="5dp"
     android:layout_marginRight="5dp"
     android:background="@drawable/bg_receiver"
     android:maxWidth="310dp"
     android:minHeight="30dp">
 
-
     <TextView
         android:id="@+id/receiverText"
-        android:layout_width="269dp"
-        android:layout_height="wrap_content"
+        android:layout_width="288dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="4dp"
         android:inputType="textLongMessage|textMultiLine"
         android:maxWidth="270dp"
         android:minWidth="50dp"
-        android:paddingStart="5dp"
-        android:text="text"
-
-        app:layout_constraintStart_toStartOf="@+id/guideline"
+        android:paddingStart="10dp"
+        android:text="textljlkjfjoijlkjojlkjojjoijlkjfojljfoijljojoijljoljojjojlkmljlkjjljojolkjojljjojojjlgojj"
+        app:layout_constraintBottom_toTopOf="@+id/receiverTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -42,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
+        app:layout_constraintGuide_start="16dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
