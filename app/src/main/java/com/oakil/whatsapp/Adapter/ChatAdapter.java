@@ -21,7 +21,13 @@ public class ChatAdapter extends RecyclerView.Adapter {
 
     ArrayList<MessageModel> messageModels;
     Context context;
+    String recId;
 
+    public ChatAdapter(ArrayList<MessageModel> messageModels, Context context, String recId) {
+        this.messageModels = messageModels;
+        this.context = context;
+        this.recId = recId;
+    }
 
     int SENDER_VIEW_TYPE = 1;
     int RECEIVER_VIEW_TYPE = 2;
@@ -67,11 +73,6 @@ public class ChatAdapter extends RecyclerView.Adapter {
     public int getItemCount() {
         return messageModels.size();
     }
-
-
-
-
-
 
 
     public class ReceiverViewHolder extends RecyclerView.ViewHolder{
