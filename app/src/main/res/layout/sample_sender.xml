@@ -2,30 +2,28 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_gravity="right"
-    android:layout_marginStart="5dp"
-    android:layout_marginLeft="55dp"
+    android:layout_gravity="end"
     android:layout_marginTop="5dp"
     android:layout_marginEnd="5dp"
-    android:layout_marginRight="5dp"
     android:background="@drawable/bg_sender"
-    android:maxWidth="310dp"
-    android:minHeight="30dp">
+
+    app:layout_constraintEnd_toEndOf="parent">
+
 
 
     <TextView
         android:id="@+id/senderText"
-        android:layout_width="288dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:inputType="textLongMessage|textMultiLine"
         android:maxWidth="270dp"
         android:minWidth="50dp"
-        android:paddingStart="5dp"
-        android:text="textljlkjfjoijlkjojlkjojjoijlkjfojljfoijljojoijljoljojjojlkmljlkjjljojolkjojljjojojjlgojj"
-        app:layout_constraintBottom_toTopOf="@+id/senderTime"
+        android:padding="8dp"
+        android:gravity="start"
+        android:text="Sender's message"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,19 +31,11 @@
         android:id="@+id/senderTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:text="12:56 pm"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/senderText"
-        app:layout_constraintTop_toBottomOf="@+id/senderText"
-        app:layout_constraintVertical_bias="0.06" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp" />
-
+        android:layout_marginEnd="8dp"
+        android:text="12:56 PM"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/senderText"
+        app:layout_constraintTop_toBottomOf="@id/senderText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
